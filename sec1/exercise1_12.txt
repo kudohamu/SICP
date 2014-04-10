@@ -1,0 +1,11 @@
+//c < 0 || r < 0 : f(c,r) = 0
+//c = 0 || r = 0 : f(c, r) = 1
+//それ以外 : f(c, r) = f(c - 1, r - 1) + f(c - 1, r)
+
+(define (pascal-tri c r)
+  (cond
+    ((or (< c 0) (< r 0)) 0)
+    ((or (= c 0) (= r c)) 1)
+    (else (+ (pascal-tri (- c 1) (- r 1)) (pascal-tri (- c 1) r)))
+  )
+)
